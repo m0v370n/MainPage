@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Photographer Portfolio</title>
+    <style>
+        /* Calm neutral design: light grays, whites, minimalistic */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        header {
+            background-color: #fff;
+            padding: 20px;
+            text-align: center;
+            border-bottom: 1px solid #ddd;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 2.5em;
+            color: #555;
+        }
+
+        header p {
+            margin: 5px 0 0;
+            font-size: 1.2em;
+            color: #777;
+        }
+
+        section {
+            padding: 40px 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        #about {
+            background-color: #fff;
+            text-align: center;
+        }
+
+        #about h2 {
+            font-size: 2em;
+            color: #555;
+            margin-bottom: 20px;
+        }
+
+        #gallery {
+            background-color: #f4f4f4;
+        }
+
+        #gallery h2 {
+            text-align: center;
+            font-size: 2em;
+            color: #555;
+            margin-bottom: 30px;
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+
+        .gallery-item {
+            background-color: #fff;
+            border: 1px solid #ddd;
+            overflow: hidden;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .gallery-item p {
+            padding: 10px;
+            text-align: center;
+            font-size: 0.9em;
+            color: #666;
+        }
+
+        #contact {
+            background-color: #fff;
+            text-align: center;
+        }
+
+        #contact h2 {
+            font-size: 2em;
+            color: #555;
+            margin-bottom: 20px;
+        }
+
+        #contact a {
+            color: #555;
+            text-decoration: none;
+        }
+
+        #contact a:hover {
+            text-decoration: underline;
+        }
+
+        footer {
+            background-color: #fff;
+            padding: 10px;
+            text-align: center;
+            border-top: 1px solid #ddd;
+            font-size: 0.8em;
+            color: #777;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 2em;
+            }
+
+            section {
+                padding: 20px 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>John Doe</h1>
+        <p>Professional Photographer | Capturing Moments</p>
+    </header>
+
+    <section id="about">
+        <h2>About Me</h2>
+        <p>Hello! I'm John Doe, a passionate photographer based in New York. With over 10 years of experience, I specialize in landscape, portrait, and event photography. My goal is to capture the essence of every moment through my lens.</p>
+    </section>
+
+    <section id="gallery">
+        <h2>Gallery</h2>
+        <div class="gallery-grid">
+            <div class="gallery-item">
+                <img src="https://via.placeholder.com/800x600?text=Photo+1" alt="Photo 1">
+                <p>Landscape in Mountains</p>
+            </div>
+            <div class="gallery-item">
+                <img src="https://via.placeholder.com/800x600?text=Photo+2" alt="Photo 2">
+                <p>Portrait Session</p>
+            </div>
+            <div class="gallery-item">
+                <img src="https://via.placeholder.com/800x600?text=Photo+3" alt="Photo 3">
+                <p>City Night Lights</p>
+            </div>
+            <div class="gallery-item">
+                <img src="https://via.placeholder.com/800x600?text=Photo+4" alt="Photo 4">
+                <p>Wedding Moments</p>
+            </div>
+            <div class="gallery-item">
+                <img src="https://via.placeholder.com/800x600?text=Photo+5" alt="Photo 5">
+                <p>Abstract Art</p>
+            </div>
+            <div class="gallery-item">
+                <img src="https://via.placeholder.com/800x600?text=Photo+6" alt="Photo 6">
+                <p>Nature Close-up</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact">
+        <h2>Contact Me</h2>
+        <p>Email: <a href="mailto:john.doe@example.com">john.doe@example.com</a></p>
+        <p>Phone: +1 (123) 456-7890</p>
+        <p>Follow me on <a href="https://instagram.com/johndoe" target="_blank">Instagram</a> or <a href="https://twitter.com/johndoe" target="_blank">Twitter</a></p>
+    </section>
+
+    <footer>
+        &copy; 2025 John Doe Photography. All rights reserved.
+    </footer>
+</body>
+</html>
