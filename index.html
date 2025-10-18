@@ -5,139 +5,198 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Photographer Portfolio</title>
     <style>
-        /* Calm neutral design: light grays, whites, minimalistic */
+        /* Tender and pleasing design with animations */
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'Helvetica', Arial, sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #f4f4f4;
-            color: #333;
-            line-height: 1.6;
+            background-color: #fff5f5; /* Soft light pink background */
+            color: #4a4a4a; /* Softer dark gray */
+            line-height: 1.8;
+            opacity: 0; /* Start hidden for fade-in */
+            animation: fadeInBody 1.5s ease-in-out forwards; /* Fade-in animation for body */
+        }
+
+        /* Fade-in animation for page load */
+        @keyframes fadeInBody {
+            0% { opacity: 0; }
+            100% { opacity: 1; }
         }
 
         header {
-            background-color: #fff;
-            padding: 20px;
+            background-color: #ffffff;
+            padding: 30px;
             text-align: center;
-            border-bottom: 1px solid #ddd;
+            border-bottom: 1px solid #f0e6e6; /* Very soft border */
         }
 
         header h1 {
             margin: 0;
-            font-size: 2.5em;
-            color: #555;
+            font-size: 3em;
+            color: #ff69b4; /* Hot pink for elegance */
+            font-family: 'Georgia', serif; /* Elegant font */
+            text-transform: uppercase; /* Uppercase text */
+            text-shadow: 0 0 8px rgba(255, 182, 193, 0.6),
+                         0 0 16px rgba(255, 182, 193, 0.4),
+                         0 0 24px rgba(255, 182, 193, 0.2); /* Softer pink glow */
+            animation: bounceIn 1.2s ease-out; /* Subtle bounce for header */
+        }
+
+        /* Bounce animation for header text */
+        @keyframes bounceIn {
+            0% { transform: scale(0.8); opacity: 0; }
+            60% { transform: scale(1.1); opacity: 1; }
+            100% { transform: scale(1); }
         }
 
         header p {
-            margin: 5px 0 0;
-            font-size: 1.2em;
-            color: #777;
+            margin: 10px 0 0;
+            font-size: 1.3em;
+            color: #888; /* Soft gray */
+            opacity: 0;
+            animation: fadeIn 1s ease-in-out 0.5s forwards; /* Delayed fade-in for subtitle */
         }
 
         section {
-            padding: 40px 20px;
+            padding: 50px 25px;
             max-width: 1200px;
             margin: 0 auto;
+            opacity: 0; /* Start hidden for fade-in */
+            animation: fadeInSection 1s ease-in-out forwards; /* Fade-in for sections */
+            animation-delay: 0.3s; /* Slight delay for staggered effect */
+        }
+
+        /* Fade-in animation for sections */
+        @keyframes fadeInSection {
+            0% { opacity: 0; transform: translateY(20px); }
+            100% { opacity: 1; transform: translateY(0); }
         }
 
         #about {
-            background-color: #fff;
+            background-color: #ffffff;
             text-align: center;
+            border-radius: 15px; /* Rounded corners */
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05); /* Subtle shadow */
         }
 
         #about h2 {
-            font-size: 2em;
-            color: #555;
-            margin-bottom: 20px;
+            font-size: 2.2em;
+            color: #ff69b4; /* Matching pink */
+            margin-bottom: 25px;
         }
 
         #gallery {
-            background-color: #f4f4f4;
+            background-color: #fff5f5; /* Matching body */
         }
 
         #gallery h2 {
             text-align: center;
-            font-size: 2em;
-            color: #555;
-            margin-bottom: 30px;
+            font-size: 2.2em;
+            color: #ff69b4;
+            margin-bottom: 40px;
         }
 
         .gallery-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 20px;
+            gap: 25px;
         }
 
         .gallery-item {
-            background-color: #fff;
-            border: 1px solid #ddd;
+            background-color: #ffffff;
+            border: 1px solid #f0e6e6;
             overflow: hidden;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            border-radius: 15px; /* Rounded corners */
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05); /* Subtle shadow */
+            transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth hover effect */
+        }
+
+        .gallery-item:hover {
+            transform: translateY(-5px); /* Gentle lift */
+            box-shadow: 0 6px 20px rgba(255, 182, 193, 0.3); /* Glow on hover */
         }
 
         .gallery-item img {
             width: 100%;
             height: auto;
             display: block;
+            border-top-left-radius: 15px;
+            border-top-right-radius: 15px;
+            transition: transform 0.3s ease; /* Smooth zoom for images */
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.05); /* Subtle zoom on hover */
         }
 
         .gallery-item p {
-            padding: 10px;
+            padding: 15px;
             text-align: center;
-            font-size: 0.9em;
+            font-size: 1em;
             color: #666;
         }
 
         #contact {
-            background-color: #fff;
+            background-color: #ffffff;
             text-align: center;
+            border-radius: 15px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
         }
 
         #contact h2 {
-            font-size: 2em;
-            color: #555;
-            margin-bottom: 20px;
+            font-size: 2.2em;
+            color: #ff69b4;
+            margin-bottom: 25px;
         }
 
         #contact a {
-            color: #555;
+            color: #ff69b4;
             text-decoration: none;
+            transition: color 0.3s ease;
         }
 
         #contact a:hover {
+            color: #ff1493; /* Darker pink on hover */
             text-decoration: underline;
         }
 
         footer {
-            background-color: #fff;
-            padding: 10px;
+            background-color: #ffffff;
+            padding: 15px;
             text-align: center;
-            border-top: 1px solid #ddd;
-            font-size: 0.8em;
-            color: #777;
+            border-top: 1px solid #f0e6e6;
+            font-size: 0.9em;
+            color: #888;
+            opacity: 0;
+            animation: fadeIn 1s ease-in-out 0.7s forwards; /* Delayed fade-in for footer */
+        }
+
+        /* Smooth scroll behavior */
+        html {
+            scroll-behavior: smooth;
         }
 
         /* Responsive adjustments */
         @media (max-width: 768px) {
             header h1 {
-                font-size: 2em;
+                font-size: 2.5em;
             }
 
             section {
-                padding: 20px 10px;
+                padding: 30px 15px;
             }
         }
     </style>
 </head>
 <body>
     <header>
-        <h1>John Doe</h1>
+        <h1>Milashka</h1>
         <p>Professional Photographer | Capturing Moments</p>
     </header>
 
     <section id="about">
         <h2>About Me</h2>
-        <p>Hello! I'm John Doe, a passionate photographer based in New York. With over 10 years of experience, I specialize in landscape, portrait, and event photography. My goal is to capture the essence of every moment through my lens.</p>
+        <!-- Text removed as per previous request -->
     </section>
 
     <section id="gallery">
@@ -178,7 +237,7 @@
     </section>
 
     <footer>
-        &copy; 2025 John Doe Photography. All rights reserved.
+        &copy; 2025 Milashka Photography. All rights reserved.
     </footer>
 </body>
 </html>
