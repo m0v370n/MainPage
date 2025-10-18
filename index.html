@@ -76,7 +76,16 @@
             background-color: #ffffff;
             text-align: center;
             border-radius: 15px; /* Rounded corners */
-            box-shadow: 0 4px 12px rgba(0,0,0,0.05); /* Subtle shadow */
+            box-shadow: 0 4px 12px rgba(255, 182, 193, 0.5),
+                        0 0 20px rgba(255, 182, 193, 0.3); /* Pink glow */
+            animation: glowPulse 2s ease-in-out infinite; /* Pulsating glow */
+        }
+
+        /* Pulsating glow animation for About Me */
+        @keyframes glowPulse {
+            0% { box-shadow: 0 4px 12px rgba(255, 182, 193, 0.5), 0 0 20px rgba(255, 182, 193, 0.3); }
+            50% { box-shadow: 0 4px 16px rgba(255, 182, 193, 0.7), 0 0 25px rgba(255, 182, 193, 0.5); }
+            100% { box-shadow: 0 4px 12px rgba(255, 182, 193, 0.5), 0 0 20px rgba(255, 182, 193, 0.3); }
         }
 
         #about h2 {
@@ -94,12 +103,39 @@
             font-size: 2.2em;
             color: #ff69b4;
             margin-bottom: 40px;
+            cursor: pointer; /* Indicate clickable */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+        }
+
+        #gallery h2::after {
+            content: '▼'; /* Down arrow */
+            font-size: 0.8em;
+            transition: transform 0.3s ease;
+        }
+
+        #gallery h2.active::after {
+            transform: rotate(180deg); /* Rotate arrow when active */
         }
 
         .gallery-grid {
-            display: grid;
+            display: none; /* Hidden by default */
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 25px;
+            opacity: 0;
+            animation: fadeInGallery 0.5s ease-in-out forwards; /* Fade-in when shown */
+        }
+
+        .gallery-grid.show {
+            display: grid; /* Show when toggled */
+        }
+
+        /* Fade-in animation for gallery */
+        @keyframes fadeInGallery {
+            0% { opacity: 0; transform: translateY(10px); }
+            100% { opacity: 1; transform: translateY(0); }
         }
 
         .gallery-item {
@@ -136,28 +172,39 @@
             color: #666;
         }
 
-        #contact {
+        #socials {
             background-color: #ffffff;
             text-align: center;
             border-radius: 15px;
             box-shadow: 0 4px 12px rgba(0,0,0,0.05);
         }
 
-        #contact h2 {
+        #socials h2 {
             font-size: 2.2em;
             color: #ff69b4;
             margin-bottom: 25px;
         }
 
-        #contact a {
-            color: #ff69b4;
-            text-decoration: none;
-            transition: color 0.3s ease;
+        .social-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 15px;
         }
 
-        #contact a:hover {
-            color: #ff1493; /* Darker pink on hover */
-            text-decoration: underline;
+        .social-button {
+            background-color: #ff69b4;
+            color: #ffffff;
+            padding: 12px 25px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-size: 1.1em;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+        }
+
+        .social-button:hover {
+            background-color: #ff1493; /* Darker pink on hover */
+            transform: scale(1.05); /* Slight scale on hover */
         }
 
         footer {
@@ -185,6 +232,11 @@
             section {
                 padding: 30px 15px;
             }
+
+            .social-button {
+                padding: 10px 20px;
+                font-size: 1em;
+            }
         }
     </style>
 </head>
@@ -197,6 +249,15 @@
     <section id="about">
         <h2>About Me</h2>
         <!-- Text removed as per previous request -->
+    </section>
+
+    <section id="socials">
+        <h2>Socials</h2>
+        <div class="social-buttons">
+            <a href="https://www.instagram.com/burjmak?igsh=cHFtdWIwN2ttd3Fl&utm_source=qr" target="_blank" class="social-button">Instagram</a>
+            <a href="https://zora.co/@milashka" target="_blank" class="social-button">Zora</a>
+            <a href="https://onlyfans.com/miamoonscorpio" target="_blank" class="social-button">Private Content</a>
+        </div>
     </section>
 
     <section id="gallery">
@@ -229,15 +290,18 @@
         </div>
     </section>
 
-    <section id="contact">
-        <h2>Contact Me</h2>
-        <p>Email: <a href="mailto:john.doe@example.com">john.doe@example.com</a></p>
-        <p>Phone: +1 (123) 456-7890</p>
-        <p>Follow me on <a href="https://instagram.com/johndoe" target="_blank">Instagram</a> or <a href="https://twitter.com/johndoe" target="_blank">Twitter</a></p>
-    </section>
-
     <footer>
         &copy; 2025 Milashka Photography. All rights reserved.
     </footer>
+
+    <script>
+        // Toggle gallery visibility on click
+        const galleryHeader = document.querySelector('#gallery h2');
+        const galleryGrid = document.querySelector('.gallery-grid');
+        galleryHeader.addEventListener('click', () => {
+            galleryGrid.classList.toggle('show');
+            galleryHeader.classList.toggle('active');
+        });
+    </script>
 </body>
 </html>
